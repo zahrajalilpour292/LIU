@@ -88,3 +88,6 @@ The following topics are included in the course:
 *  Markov Chain Monte Carlo ( MCMC) simulations that include Metropolis-Hastings and Gibbs algorithms,
 
 *  introduction to optimization without side conditions and stochastic optimization.
+
+### [Deep Learning](https://github.com/zahrajalilpour292/LIU/tree/main/DeepLearning)
+
