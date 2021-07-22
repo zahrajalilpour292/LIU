@@ -1,6 +1,6 @@
 # MSc Statistics and Machine Learning
 ## Linköping University
-Overview of my laboratory work for the master studies in Statistics and Machine Learning at Linköping University 2020-2021 and Data Science at Dalarna University 2019-2020.
+Overview of my laboratory work for the master studies in Statistics and Machine Learning at Linköping University 2020-2021 and Data Science at Dalarna University 2020.
 
 
 ### [Advanced Data Mining](https://github.com/zahrajalilpour292/LIU/tree/main/Advanced%20Data%20Mining)
