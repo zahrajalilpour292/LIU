@@ -91,3 +91,17 @@ The following topics are included in the course:
 
 ### [Deep Learning](https://github.com/zahrajalilpour292/LIU/tree/main/DeepLearning)
 
+The course introduces main concepts in Deep Learning and widely used Deep Learning models.  The course includes the following topics:
+
+*  Deep and shallow networks
+
+*  Regularization, droupout and early stopping. Optimization of deep neural networks
+
+*  Convolutional neural networks and image analysis
+
+*  Deep recurrent neural networks and sequence analysis
+
+*  Autoencoders and feature extraction
+
+*  Generative Adversarial neural networks
+
