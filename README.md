@@ -3,7 +3,7 @@
 Overview of my laboratory work for the master studies in Statistics and Machine Learning at Linköing University 2020-2021.
 
 
-### [Advanced Data Mining](https://github.com/zahrajalilpour292/LIU/tree/main/Advanced%20Academic%20Studies)
+### [Advanced Data Mining](https://github.com/zahrajalilpour292/LIU/tree/main/Advanced%20Data%20Mining)
 
 All labs are done with Weka V3.6.12.
 
