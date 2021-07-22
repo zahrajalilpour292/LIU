@@ -174,17 +174,17 @@ different statistical learning models and algorithms are also included .
 
 The course covers : 
 *  Supervised learning algorithms, with special emphasis on
-   + classification methods such as logistic regression,
-   + classification trees,
-   + linear discriminant analysis,
-   + quadratic discriminant analysis,
-   + K-nearest neighbour,
-   + support vector machine,
-   + regression methods such as linear regression, smoothing splines, generalised additive model, and regression trees.
+   * classification methods such as logistic regression,
+   * classification trees,
+   * linear discriminant analysis,
+   * quadratic discriminant analysis,
+   * K-nearest neighbour,
+   * support vector machine,
+   * regression methods such as linear regression, smoothing splines, generalised additive model, and regression trees.
 *  Unsupervised learning methods such as:
-   - principal component analysis, 
-   - k-mean clustering, 
-   - hierarchical clustering.
+   * principal component analysis, 
+   * k-mean clustering, 
+   * hierarchical clustering.
 *  Model validation through cross validation, and bootstrap method.
  
 *  Regularisation for model selection,
