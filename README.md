@@ -30,3 +30,21 @@ The course is devoted to studying the programming language R, including its stan
 * Performance enhancement
 
 * Parallel programming and many other concepts
+
+### [Bayesian Learning](https://github.com/zahrajalilpour292/LIU/tree/main/Bayesian%20Learning)
+
+The course aims to give a solid introduction to the Bayesian approach to statistical inference, with a view towards applications in data mining and 
+machine learning. 
+The course covers the following topics:
+*  Likelihood, Subjective probability, Bayes theorem, Prior and posterior distribution
+
+*  Bayesian analysis of the following models: Bernoulli, Normal, Multinomial, Multivariate normal
+
+*  Linear and nonlinear regression, Binary regression, Mixture models
+
+*  Regularization priors, Classification, Naïve Bayes, Marginalization, Posterior approximation, Prediction, Decision theory,
+
+*  Markov Chain Monte Carlo, Gibbs sampling
+
+*  Bayesian variable selection, Model selection, Model averaging. 
+
