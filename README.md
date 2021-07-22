@@ -1,1 +1,1 @@
-# Link-ping-University
+# Linkoping University
