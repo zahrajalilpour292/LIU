@@ -1,0 +1,138 @@
+---
+title: "Computer_lab3_task1_task3"
+author: "zahra jalilpour"
+date:  "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library("LaplacesDemon")
+library(knitr)
+library(mvtnorm)
+```
+# Question1: Gibbs sampler for a normal model
+
+## a
+
+```{r}
+setwd("D:/Linkoping university/second semester/second/bayesian learning/lab/lab3")
+rainfall <- read.table("rainfall.dat", header=FALSE)
+rainfall$day <- c(1:nrow(rainfall))
+colnames(rainfall)<- c("rainfall", "day")
+
+ggplot(rainfall)+
+  geom_point(aes(x=day,y=rainfall), fill="#dedede")+
+  labs(title="Rain fall in specific period", y="Rainfall", x="Day",color="Legend")+
+  theme_light()
+```
+
+```{r}
+Gibbs_Sampling <- function(data, N_iter, mu_0, tau2_0, nu_0, sigma2_0){
+  
+  n <- nrow(data)
+  x_hat <- mean(log(data[,1]))
+  nu_n <- nu_0 + n 
+  mu <- c()
+  sigma2 <- c()
+  mu[1] <- rnorm(1, mu_0, sqrt(tau2_0))
+  sigma2[1] <- (nu_0 * sigma2_0)/rchisq(n = 1, df = nu_0)
+  
+  for (i in 1:N_iter){
+    
+    w <- (n/sigma2[i])/((n/sigma2[i]) + (1/tau2_0))
+    mu_n <- w*x_hat + (1-w)*mu_0
+    tau2_n <- (n/sigma2[i] + 1/tau2_0)^-1
+    mu[i+1] <- rnorm(n = 1, mu_n, sd = sqrt(tau2_n))
+
+    sigma2_n <- ((nu_0*sigma2_0) + sum((log(data[,1]) - mu[i])^2))/ (n+nu_0)
+    sigma2[i+1] <- (nu_n * sigma2_n)/rchisq(1, df = nu_n)
+  }
+  
+  df <- data.frame("mu" = mu, "sigma2" = sigma2)
+  return(df)
+}
+
+
+```
+
+```{r}
+Gibbs_df <- Gibbs_Sampling(data = rainfall, 
+                        N_iter = 1000,
+                        mu_0 = 1,
+                        tau2_0 = 0.9,
+                        nu_0 = 1,
+                        sigma2_0 = 1)
+plot(Gibbs_df$mu,type='l',col="#0039C7",main=expression(mu))
+plot(Gibbs_df$sigma2,type='l',col="#0039C7",main=expression(sigma2))
+
+```
+
+```{r}
+sigma_gibbs <- acf(x=Gibbs_df$sigma2, lag.max = 1000)
+IF_Gibbs <- 1+2*sum(sigma_gibbs$acf[-1])
+mu_gibbs <- acf(x=Gibbs_df$mu, lag.max = 1000)
+IF_Gibbs2 <- 1+2*sum(mu_gibbs$acf[-1])
+
+```
+
+## b
+
+```{r}
+density_data = density(rainfall$rainfall)
+Gibbs_simu<-as.matrix(rbind(Gibbs_df$mu,Gibbs_df$sigma2))
+pred<-c()
+for(i in 1:ncol(Gibbs_simu))
+{
+pred[i]<-rnorm(1,mean=Gibbs_simu[1,i],sd=sqrt(Gibbs_simu[2,i]))
+}
+gibbs_density<-density(exp(pred))
+plot(density_data$x,density_data$y,type="l",main="Densities for the Different Model", ylab = "Density")
+lines(gibbs_density$x,gibbs_density$y,col='red')
+```
+
+# 3
+
+## a
+
+```{r}
+T<-200
+mu<- 20
+sigma_sq<- 4
+AR_process <- function(mu, phi,  T,sigma_sq){
+  x<- rep(0, T)
+  x[1]<- mu
+  
+  for (t in 1:(T-1)){
+    x[t+1] <- mu + phi * (x[t] - mu) + rnorm(1, mean=0, sd=sqrt(sigma_sq))
+  } 
+
+return(x)
+}
+simulation_AR <- function(mu, phi,  T,sigma_sq ){
+  sim <- AR_process(mu, phi,  T,sigma_sq)
+  AR_df <- data.frame(x=1:T, y=sim)
+  AR_plot <- ggplot(AR_df)+
+    geom_line(aes(x=x, y=y), color= "#2E4053")+
+    labs(title= paste("Simulation of AR process for phi= ",phi), x="iteration", y="mu",color="legend")+
+    theme_light()
+  
+  return(AR_plot)
+}
+
+plot1 <- simulation_AR(mu= 10, phi=-0.7, T=200, sigma_sq=2)
+plot2 <- simulation_AR(mu= 10, phi=-0.2, T=200, sigma_sq=2)
+plot3 <- simulation_AR(mu= 10, phi=0.8, T=200, sigma_sq=2)
+plot4 <- simulation_AR(mu= 10, phi=1, T=200, sigma_sq=2)
+par(mfrow=c(3,3))
+plot1
+plot2
+plot3
+plot4
+```
