@@ -120,3 +120,29 @@ The course covers Python basics and more advanced concepts such as:
 *  The standard library and essential third-party packages for graphics, scientific computing and data manipulation.
 
 *  Debugging.
+
+### [Machine Learning](https://github.com/zahrajalilpour292/LIU/tree/main/Machine%20Learning)
+
+The course focuses on main concepts and main tools in probabilistic machine learning that are necessary for professional work and research in data analysis.
+
+*  Introduction and overview of machine learning (including regression, classification, supervised and unsupervised learning) and its fields of application,
+
+*  Nearest Neighbors and Naive Bayes,
+
+*  Discriminant analysis, logistic regression and decision trees,
+
+*  Model selection and uncertainty estimation: holdout method, cross-validation, AIC, bootstrap and confidence intervals,
+
+*  Linear regression and regularization methods (Ridge, LASSO),
+
+*  Splines, generalized linear and additive models,
+
+*  Principal component analysis (PCA) and principal component regression (PCR),
+
+*  Kernel equalizers, kernel tricks and support vector machines,
+
+*  Neural networks,
+
+*  Bagging, boosting and random forests,
+
+*  Online learning and mixture models.
