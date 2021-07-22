@@ -48,3 +48,27 @@ The course covers the following topics:
 
 *  Bayesian variable selection, Model selection, Model averaging. 
 
+### [Big Data Analytics](https://github.com/zahrajalilpour292/LIU/tree/main/Big%20Data%20Analytics)
+
+The course introduces main concepts and tools for storing, processing and analyzing Big Data which are necessary for professional work and research in data analytics.
+
+* Introduction to Big Data: concepts and tools
+
+* Introduction to Python
+
+* Basic principles of parallel computing
+
+* Introduction to databases
+
+* File systems and databases for Big Data 
+
+* Querying for Big Data 
+
+* Resource management in a cluster environment
+
+* Parallelizing computations for Big Data 
+
+* Basic Machine Learning algorithms
+
+* Machine Learning for Big Data 
+
