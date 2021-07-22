@@ -70,7 +70,27 @@ The course introduces main concepts and tools for storing, processing and analyz
 
 *  Basic Machine Learning algorithms
 
-*  Machine Learning for Big Data 
+*  Machine Learning for Big Data
+
+### [Business Intelligence](https://github.com/zahrajalilpour292/LIU/tree/main/Business%20Intelligence)
+
+The course provides an introduction to Business Intelligence, analytics and decision support. It shows how problems in business can be solved by
+collecting business data and converting these into data warehouse form.
+
+The course covers the following topics:
+
+*  Data warehousing, together with data integration, extraction and transformation (ETL)
+
+*  Data mining tools, such as classification, clustering and association rule
+
+*  Predictive models, such as neural networks
+
+*  Text analytics such as text mining, sentiment analysis and web mining
+ 
+*  Automated decision systems and expert systems 
+   
+*  Knowledge management
+
 
 ### [Computational Statistics](https://github.com/zahrajalilpour292/LIU/tree/main/Computational%20Statistics)
 
