@@ -166,3 +166,16 @@ The course focuses on main concepts and main tools in probabilistic machine lear
 *  Bagging, boosting and random forests,
 
 *  Online learning and mixture models.
+
+### [Visualization](https://github.com/zahrajalilpour292/LIU/tree/main/Visualization/project)
+
+The course covers :
+
+*  classical descriptive statistics and data visualisation.
+
+*  Classical descriptive statistics includes how to draw conclusions about the istribution of data using graphs 
+
+*  summarise data using measures of centre, spread, and association
+  
+*  Analyse data using normal distribution.
+
