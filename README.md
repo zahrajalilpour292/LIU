@@ -1,6 +1,6 @@
 # MSc Statistics and Machine Learning
-## Linkoping University
-Overview of my laboratory work for the master studies in Statistics and Machine Learning at Linköing University 2020-2021.
+## Linköping University
+Overview of my laboratory work for the master studies in Statistics and Machine Learning at Linköping University 2020-2021 and Data Science at Dalarna University 2020.
 
 
 ### [Advanced Data Mining](https://github.com/zahrajalilpour292/LIU/tree/main/Advanced%20Data%20Mining)
@@ -166,6 +166,33 @@ The course focuses on main concepts and main tools in probabilistic machine lear
 *  Bagging, boosting and random forests,
 
 *  Online learning and mixture models.
+
+### [Statistical Learning](https://github.com/zahrajalilpour292/LIU/tree/main/Statistical%20Learning)
+
+The course focuses mainly on the applied aspects of statistical learning. However, the most important basic properties of, and relations between
+different statistical learning models and algorithms are also included . 
+
+The course covers : 
+*  Supervised learning algorithms, with special emphasis on
+   * classification methods such as logistic regression,
+   * classification trees,
+   * linear discriminant analysis,
+   * quadratic discriminant analysis,
+   * K-nearest neighbour,
+   * support vector machine,
+   * regression methods such as linear regression, smoothing splines, generalised additive model, and regression trees.
+*  Unsupervised learning methods such as:
+   * principal component analysis, 
+   * k-mean clustering, 
+   * hierarchical clustering.
+*  Model validation through cross validation, and bootstrap method.
+ 
+*  Regularisation for model selection,
+  
+*  High dimensional data analysis, 
+  
+*  Improving prediction performance through model averaging, bagging, and boosting techniques .
+
 
 ### [Visualization](https://github.com/zahrajalilpour292/LIU/tree/main/Visualization/project)
 
