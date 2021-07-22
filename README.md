@@ -19,3 +19,10 @@ This course covers the following content:
 * Association_Analysis: Apriori algorithm, FP-grow Algorithm, Monotone/Antimonotone Constraints.
 
 ### [Advanced Programming in R](https://github.com/zahrajalilpour292/LIU/tree/main/Advanced%20Programming%20in%20R)
+
+The course is devoted to studying the programming language R, including its standard and more advanced tools. The course is a mix of lectures and exercise sessions. Such concepts as:
+* Reading data from file and from the internet
+* Data structures, functions and objects
+* Debugging, object-oriented programming
+* Performance enhancement
+* Parallel programming and many other concepts
