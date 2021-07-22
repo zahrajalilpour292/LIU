@@ -1,1 +1,2 @@
-# Linkoping University
+# MSc Statistics and Machine Learning
+## Linkoping University
