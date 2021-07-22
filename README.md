@@ -105,3 +105,18 @@ The course introduces main concepts in Deep Learning and widely used Deep Learni
 
 *  Generative Adversarial neural networks
 
+### [Introduction to Python](https://github.com/zahrajalilpour292/LIU/tree/main/Introduction%20to%20Python)
+
+The course covers Python basics and more advanced concepts such as:
+
+*  Python basics: programming environment and documentation, program flow, variables, comments, numerical operators, loops, conditional statements.
+
+*  Data structures: simple data types, tuples, lists, dictionaries, sets,  iterators and generators.
+
+*  Functions and functional programming, anonymous lambda functions, comprehensions.
+ 
+*  Classes and object oriented programming, objects and message passing
+
+*  The standard library and essential third-party packages for graphics, scientific computing and data manipulation.
+
+*  Debugging.
