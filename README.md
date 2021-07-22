@@ -12,9 +12,9 @@ This course covers the following content:
 
 * Partitioning_Methods : K-Means, K-Medoids, PAM, CLARA, CLARANS.
 
-* [Hierarchical Methods](#Hierarchical_Methods) : AGNES, DIANA; BIRCH, ROCK, CHAMELEON.
+* Hierarchical_Methods : AGNES, DIANA; BIRCH, ROCK, CHAMELEON.
 
-* [Density-Based Methods](#Density_Based_Methods) : DBSCAN, OPTICS, Denclue.
+* Density_Based_Methods : DBSCAN, OPTICS, Denclue.
 
-* [Association Analysis](#Association_Analysis): Apriori algorithm, FP-grow Algorithm, Monotone/Antimonotone Constraints.
+* Association_Analysis: Apriori algorithm, FP-grow Algorithm, Monotone/Antimonotone Constraints.
 
