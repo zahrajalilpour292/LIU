@@ -1,0 +1,196 @@
+---
+title: "Lab compendium Lab 1"
+author: "zahra jalilpour"
+date: '2021-04-07'
+output: 
+  pdf_document:
+    toc: True
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\newpage
+
+
+
+# Lab 1 SQL-Queries and Views
+
+
+## 1) List all employees, i.e. all tuples in the jbemployee relation.
+```{r, eval=FALSE}
+SELECT *
+  FROM jbemployee;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q1.png")
+```
+
+
+## 2)List the name of all departments in alphabetical order. Note: by “name” we mean the name attribute for all tuples in the jbdept relation.
+```{r, eval=FALSE}
+SELECT name 
+  FROM jbdept 
+  ORDER BY name;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q2.png")
+```
+
+## 3)What parts are not in store, i.e. qoh = 0? (qoh = Quantity On Hand)
+```{r, eval=FALSE}
+SELECT name 
+  FROM jbparts 
+  WHERE jbparts.qoh=0;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q3.png")
+```
+
+## 4)Which employees have a salary between 9000 (included) and 10000 (included)?
+```{r, eval=FALSE}
+SELECT name
+  FROM  jbemployee
+  WHERE  jbemployee.salary BETWEEN 9000 AND 10000;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q4.png")
+```
+
+## 5)What was the age of each employee when they started working (startyear)?
+```{r, eval=FALSE}
+SELECT name, (jbemployee.startyear - jbemployee.birthyear) AS age
+  FROM jbemployee;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q5.png")
+```
+
+## 6)Which employees have a last name ending with “son”?
+```{r, eval=FALSE}
+SELECT name
+  FROM jbemployee 
+  WHERE name LIKE '%son,%';
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q6.png")
+```
+
+## 7)Which items (note items, not parts) have been delivered by a supplier called Fisher-Price? Formulate this query using a subquery in the where-clause.
+```{r, eval=FALSE}
+SELECT * 
+  FROM jbitem AS itm 
+  WHERE itm.supplier=(SELECT sup.id
+                      FROM jbsupplier AS sup
+                      WHERE sup.name='Fisher-Price');
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q7.png")
+```
+
+## 8)Formulate the same query as above, but without a subquery.
+```{r, eval=FALSE}
+SELECT itm.id, itm.name, itm.dept, itm.price,itm.qoh,itm.supplier
+  FROM jbitem AS itm, jbsupplier AS sup
+  WHERE itm.supplier=sup.id AND sup.name='Fisher-Price';
+
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q8.png")
+```
+
+## 9)Show all cities that have suppliers located in them. Formulate this query using a subquery in the where-clause.
+```{r, eval=FALSE}
+SELECT * 
+  FROM jbcity AS cty
+  WHERE cty.id IN (SELECT sup.city
+  FROM jbsupplier AS sup);
+
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q9.png")
+```
+
+## 10)What is the name and color of the parts that are heavier than a card reader? Formulate this query using a subquery in the where-clause. (The SQL query must not contain the weight as a constant.)
+```{r, eval=FALSE}
+SELECT prts.name , prts.color
+  FROM jbparts AS prts
+  WHERE prts.weight>(SELECT prts.weight
+  FROM jbparts AS prts
+  WHERE prts.name ='card reader');
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q10.png")
+```
+
+## 11)Formulate the same query as above, but without a subquery. (The query must not contain the weight as a constant.)
+
+```{r, eval=FALSE}
+SELECT prts.name, prts.color
+  FROM jbparts AS prts, jbparts AS prts2
+  WHERE prts2.name='card reader' AND prts.weight>prts2.weight;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q11.png")
+```
+
+## 12)What is the average weight of black parts?
+```{r, eval=FALSE}
+SELECT avg(prts.weight) AS avg_weight
+  FROM jbparts AS prts WHERE prts.color='black';
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q12.png")
+```
+
+## 13)What is the total weight of all parts that each supplier in Massachusetts (“Mass”) has delivered? Retrieve the name and the total weight for each of these suppliers. Do not forget to take the quantity of delivered parts into account. Note that one row should be returned for each supplier.
+```{r, eval=FALSE}
+SELECT sup.name, SUM(prts.weight*sp.quan) AS total_weight
+  FROM jbparts AS prts, jbsupplier AS sup, jbsupply AS sp, jbcity AS cty
+  WHERE prts.id=sp.part AND sup.id=sp.supplier
+  AND sup.city= cty.id AND cty.state= 'Mass'
+  GROUP BY sup.id;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q13.png")
+```
+
+## 14)Create a new relation (a table), with the same attributes as the table items using the CREATE TABLE syntax where you define every attribute explicitly (i.e. not as a copy of another table). Then fill the table with all items that cost less than the average price for items. Remember to define primary and foreign keys in your table!
+```{r, eval=FALSE}
+CREATE TABLE jbitem_new
+	(
+		id INT,
+        name VARCHAR(20),
+        price INT,
+        qoh INT UNSIGNED,
+        dept INT,
+        supplier INT,
+        PRIMARY KEY (id),
+        FOREIGN KEY (dept) REFERENCES jbdept(id),
+        FOREIGN KEY (supplier) REFERENCES jbsupplier(id)
+        );
+ INSERT INTO jbitem_new(id, name, price, qoh, dept, supplier)
+	SELECT itm.id, itm.name, itm.price, itm.qoh, itm.dept, itm.supplier
+    FROM jbitem AS itm
+    WHERE (itm.price)<(SELECT AVG(jbitem.price) FROM jbitem);
+    
+SELECT *
+FROM  jbitem_new;
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("q14.png")
+```

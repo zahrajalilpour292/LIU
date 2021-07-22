@@ -1,0 +1,18 @@
+#exe5
+from pyspark import SparkContext
+sc = SparkContext(appName = "exe 5")
+Precipitation=sc.textFile("BDA/input/precipitation-readings.csv")
+Station=sc.textFile("BDA/input/stations-Ostergotland.csv")
+lines_precipitation = Precipitation.map(lambda line: line.split(";"))
+lines_stations = Station.map(lambda line: line.split(";"))
+prec1 = lines_precipitation.map(lambda x: (x[0], x[1][0:4], x[1][5:7], float(x[3])))
+precipit = prec1.filter(lambda x: int(x[1])>=1993 and int(x[1])<=2016)
+stat = lines_stations.map(lambda x: (int(x[0]))).collect()
+stations_distributed = sc.broadcast(stat)
+precipitation_province = precipit.filter(lambda a: int(a[0]) in stations_distributed.value)
+monthly_precipitation = precipitation_province.map(lambda x: ((x[0], x[1], x[2]), x[3]))
+monthly_precipitation_avg_station = monthly_precipitation.reduceByKey(lambda a,b: a+b)
+monthly_precipitation_avg = monthly_precipitation_avg_station.map(lambda x: ((x[0][1], x[0][2]), (x[1], 1)))
+monthly_precipitation_avg = monthly_precipitation_avg.reduceByKey(lambda a,b: (a[0]+b[0], a[1]+b[1]))
+monthly_precipitation_avg = monthly_precipitation_avg.mapValues(lambda x: x[0]/x[1])
+monthly_precipitation_avg.saveAsTextFile("BDA/output/averge_monthly_precipitation")
