@@ -52,23 +52,39 @@ The course covers the following topics:
 
 The course introduces main concepts and tools for storing, processing and analyzing Big Data which are necessary for professional work and research in data analytics.
 
-* Introduction to Big Data: concepts and tools
+*  Introduction to Big Data: concepts and tools
 
-* Introduction to Python
+*  Introduction to Python
 
-* Basic principles of parallel computing
+*  Basic principles of parallel computing
 
-* Introduction to databases
+*  Introduction to databases
 
-* File systems and databases for Big Data 
+*  File systems and databases for Big Data 
 
-* Querying for Big Data 
+*  Querying for Big Data 
 
-* Resource management in a cluster environment
+*  Resource management in a cluster environment
 
-* Parallelizing computations for Big Data 
+*  Parallelizing computations for Big Data 
 
-* Basic Machine Learning algorithms
+*  Basic Machine Learning algorithms
 
-* Machine Learning for Big Data 
+*  Machine Learning for Big Data 
 
+### [Computational Statistics](https://github.com/zahrajalilpour292/LIU/tree/main/Computational%20Statistics)
+
+The course covers a variety of computer-based models and mathematical tools that enable a computer-intensive statistical inference of complex and challenging problems in statistics, machine learning and engineering.
+
+
+The following topics are included in the course:
+
+*  effect of computer arithmetic on statistical calculations,
+
+*  basic methods for random number generation which includes inverse CDF method and acceptance / rejection method,
+
+*  Monte Carlo methods for simulation and inference which includes bootstrap and jackknife,
+
+*  Markov Chain Monte Carlo ( MCMC) simulations that include Metropolis-Hastings and Gibbs algorithms,
+
+*  introduction to optimization without side conditions and stochastic optimization.
